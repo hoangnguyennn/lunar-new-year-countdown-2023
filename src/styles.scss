@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  min-height: 100vh;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  background-color: #83272b;
+  color: #f5ac27;
+  font-family: 'Lato', sans-serif;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 70px;
+  text-align: center;
+}
+
+.time {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .time-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin-left: 30px;
+    }
+
+    .number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 150px;
+      height: 150px;
+      font-size: 70px;
+      line-height: 150px;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .border-1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 5px solid rgba(245, 172, 39, 0.2);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        right: calc(100% + 5px);
+        width: calc(100% + 10px);
+        height: 5px;
+        background-color: #f5ac27;
+        animation: leftToRight 4s linear infinite;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: calc(-100% - 15px);
+        right: -5px;
+        width: 5px;
+        height: calc(100% + 10px);
+        background-color: #f5ac27;
+        animation: topToBottom 4s linear infinite;
+      }
+    }
+
+    .border-2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 5px solid rgba(245, 172, 39, 0.2);
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: calc(100% + 5px);
+        width: calc(100% + 10px);
+        height: 5px;
+        background-color: #f5ac27;
+        animation: rightToLeft 4s linear infinite;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: calc(-100% - 15px);
+        left: -5px;
+        width: 5px;
+        height: calc(100% + 10px);
+        background-color: #f5ac27;
+        animation: bottomToTop 4s 1s linear infinite;
+      }
+    }
+
+    .text {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 479.98px) {
+  .title {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 40px;
+  }
+
+  .time {
+    flex-direction: column;
+
+    .time-item {
+      &:not(:first-child) {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@keyframes leftToRight {
+  0% {
+    right: calc(100% + 5px);
+  }
+
+  50%,
+  100% {
+    right: calc(-100% - 15px);
+  }
+}
+
+@keyframes topToBottom {
+  0%,
+  25% {
+    top: calc(-100% - 15px);
+  }
+
+  75%,
+  100% {
+    top: calc(100% + 5px);
+  }
+}
+
+@keyframes rightToLeft {
+  0%,
+  50% {
+    left: calc(100% + 5px);
+  }
+
+  100% {
+    left: calc(-100% - 15px);
+  }
+}
+
+@keyframes bottomToTop {
+  0%,
+  50% {
+    bottom: calc(-100% - 15px);
+  }
+
+  100% {
+    bottom: calc(100% + 5px);
+  }
+}
